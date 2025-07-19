@@ -1,75 +1,51 @@
 #include <iostream>
 #define MAX 5
 using namespace std;
-// Define a Queue //
 template <class T>
-class Queue
-{
+class Queue {
 private:
     int front, rear, counter;
     T arr[MAX];              
-
 public:
-    // Constructor to initialize front, rear, and other members
-    Queue()
-    {
+    Queue() {
         front = -1;
         rear = -1;
         counter = 0;
     }
-    // Check if the queue is empty
-    bool isEmpty()
-    {
+    bool isEmpty() {
         return (counter == 0);
     }
-    // Check if the queue is full
-    bool isFull()
-    {
+    bool isFull() {
         return (counter == MAX);
     }
-    // Enqueue into the queue
-    void enq(T data)
-    {
-        if (!isFull())
-        {
+    void enq(T data) {
+        if (!isFull()) {
             if (front == -1)
                 front = 0;
-            rear = (rear + 1) % MAX; // Circular increment
+            rear = (rear + 1) % MAX;
             arr[rear] = data;
             counter++;
-        }
-        else
-        {
+        } else {
             cout << "Overflow" << endl;
         }
     }
-    // Dequeue from the queue
-
-    void deq()
-    {
-        if (!isEmpty())
-        {
+    void deq() {
+        if (!isEmpty()) {
             cout << "Dequeued: " << arr[front] << endl;
             front = (front + 1) % MAX; // Circular increment
             counter--;
-        }
-        else
-        {
+        } else {
             cout << "Underflow" << endl;
         }
-    }
-    // Display the queue
-    void display()
-    {
-        if (isEmpty())
-        {
+    } 
+    void display() {
+        if (isEmpty()) {
             cout << "The queue is empty!" << endl;
             return;
         }
         cout << "\n============= Queue Contents =============" << endl;
         cout << "Queue: ";
-        for (int i = 0; i < counter; i++)
-        {
+        for (int i = 0; i < counter; i++) {
             int idx = (front + i) % MAX;
             cout << arr[idx] << "\t";
         }
@@ -80,9 +56,7 @@ public:
              << endl;
     }
 };
-// Driver main function
-int main()
-{
+int main() {
     Queue<int> que;
     int choice;
     int val;
@@ -91,13 +65,10 @@ int main()
          << "2 - Dequeue\n"
          << "3 - Display\n"
          << "4 - Exit\n";
-    do
-    {
+    do {
         cout << "Your choice: ";
         cin >> choice;
-        switch (choice)
-        {
-
+        switch (choice) {
         case 1:
             cout << "Enter value to enqueue: ";
             cin >> val;

@@ -3,25 +3,21 @@ using namespace std;
 int MAXSIZE = 8;
 int stack[8];
 int top = -1;
-// Function to check if the stack is empty
 int isempty() {
     if (top == -1)
         return 1;
     else
         return 0;
 }
-// Function to check if the stack is full
 int isfull() {
     if (top == MAXSIZE - 1)
         return 1;
     else
         return 0;
 }
-// Function to look at the top element of the stack
 void peek() {
     cout << stack[top] << endl;
 }
-// Function to pop the top element from the stack
 void pop() {
     int data;
     if (!isempty()) {
@@ -33,8 +29,6 @@ void pop() {
         cout << "Could not retrieve data, Stack is empty." << endl;
     }
 }
-
-// Function to push an element onto the stack
 void push() {
     int data;
     if (!isfull()) {
